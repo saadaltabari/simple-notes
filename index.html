@@ -1,37 +1,49 @@
-    <head>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    </head>
-    <body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 
-        <div id="noteList" class="flex-container">
-            <div id="add-note"><i class="fas fa-plus"></i></div>
-        </div>
+    <div id="noteList" class="note-list">
+        <!-- Notes will go here -->
+    </div>
 
-        <!-- The hidden modal that will be displayed for adding/editing notes -->
-        <div id="noteModal" class="modal">
+    <!-- Floating button for adding notes -->
+    <button id="add-note" class="add-note-btn"><i class="fas fa-plus"></i></button>
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                </div>
-                <div class="modal-body">
-                   <div>
-                        <input id="noteIdInput" type="hidden" />
-                        <input id="noteTitleInput"
-                               class="noteTitleInput inactive"
-                               type="text" placeholder="Enter note title.."/>
-                   </div>
-                   <div>
-                         <textarea id="noteDetailsInput"
-                                   class="noteDetailsInput"
-                                   placeholder="Take note.."></textarea>
-                   </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="saveNote" onclick="saveNote()">Save</button>
-                </div>
+    <!-- The hidden modal that will be displayed for creating/viewing/editing notes -->
+    <div id="noteModal" class="modal">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Note Color:</span>
+                <input type="radio" name="color" class="color-option yellow" value="yellow" checked/>
+                <input type="radio" name="color" class="color-option pink" value="pink"/>
+                <input type="radio" name="color" class="color-option blue" value="blue"/>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+               <div>
+                    <input id="noteIdInput" type="hidden" />
+                    <input id="noteTitleInput"
+                           class="noteTitleInput inactive"
+                           type="text" placeholder="Enter note title.."/>
+               </div>
+               <div>
+                     <textarea id="noteDetailsInput"
+                               class="noteDetailsInput"
+                               placeholder="Take note.."></textarea>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <button class="save-note" onclick="saveNote()">Save</button>
+                <i onclick="deleteNote()" class="delete far fa-trash-alt"></i>
             </div>
         </div>
+    </div>
 
-    </body>
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
 
